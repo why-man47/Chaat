@@ -1,0 +1,19 @@
+const darkMode = document.getElementById("darkMode");
+
+if (darkMode) {
+
+    darkMode.checked = localStorage.getItem("darkmode") === "true";
+
+    darkMode.addEventListener("change", () => {
+
+        localStorage.setItem("darkmode", darkMode.checked);
+
+        if (darkMode.checked) {
+            document.body.classList.add("dark");
+        } else {
+            document.body.classList.remove("dark");
+        }
+
+    });
+
+}

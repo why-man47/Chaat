@@ -1,0 +1,33 @@
+const username = localStorage.getItem("chatverse_user") || "Invité";
+
+const usernameElement = document.getElementById("username");
+const messages = document.getElementById("messages");
+const input = document.getElementById("messageInput");
+const sendBtn = document.getElementById("sendBtn");
+
+if (usernameElement) {
+    usernameElement.textContent = username;
+}
+
+function sendMessage() {
+    const text = input.value.trim();
+
+    if (text === "") return;
+
+    const message = document.createElement("div");
+    message.className = "message";
+    message.innerHTML = `<strong>${username}</strong> : ${text}`;
+
+    messages.appendChild(message);
+
+    input.value = "";
+    messages.scrollTop = messages.scrollHeight;
+}
+
+sendBtn?.addEventListener("click", sendMessage);
+
+input?.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+        sendMessage();
+    }
+});

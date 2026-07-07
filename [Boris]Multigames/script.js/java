@@ -1,0 +1,16 @@
+const btn = document.getElementById("loginBtn");
+const message = document.getElementById("message");
+
+btn.addEventListener("click", () => {
+
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
+
+    if(user === "" || pass === ""){
+        message.textContent = "Remplis tous les champs.";
+        return;
+    }
+
+    message.style.color = "#f5f5f5";
+    message.textContent = "Connexion réussie !";
+});
